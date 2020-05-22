@@ -1,10 +1,16 @@
 #ToDoBox{
-    justify-content: center;
+    
+    
     background-color: lightgrey;
     width: fit-content;
     border: 15px  solid black;
     padding: 50px;
     margin: 20px;
+}
+.center{
+    margin: auto;
+    width: 60%;
+    padding: 10px;
 }
 h1{
     text-align: center;
