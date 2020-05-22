@@ -12,10 +12,23 @@ body{
     
 }
 .center{
-    margin: auto;
+    margin: auto !important;
     width: 60%;
     padding: 10px;
 }
 h1{
     text-align: center;
+}
+
+#clock {
+    width: 300px;
+    height: 100px;
+    background-color: black;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: greenyellow;
+    font-family:fantasy;
+    font-size: 3em;
 }
