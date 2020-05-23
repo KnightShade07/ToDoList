@@ -25,6 +25,7 @@ function isAllDataValid() {
 }
 function addToDoListItem() {
     if (isAllDataValid()) {
+        clearAllErrors();
         var item = getToDoItem();
         displayToDoItem(item);
     }
@@ -35,11 +36,29 @@ function getToDoItem() {
     tdItems.title = titleInput.value;
     var dueDateInput = getInputById("due-date");
     tdItems.dueDate = new Date(dueDateInput.value);
-    var isCompleted = getInputById("is-completed");
+    var isCompleted = getInputById("is-complete");
     tdItems.isCompleted = isCompleted.checked;
     return tdItems;
 }
 function displayToDoItem(item) {
+    var itemText = document.createElement("h3");
+    itemText.innerText = item.title;
+    var itemDate = document.createElement("p");
+    itemDate.innerText = item.dueDate.toString();
+    var itemDiv = document.createElement("div");
+    if (item.isCompleted) {
+        itemDiv.classList.add("completed");
+    }
+    itemDiv.appendChild(itemText);
+    itemDiv.appendChild(itemDate);
+    if (item.isCompleted) {
+        var completedTasks = document.getElementById("completed-tasks");
+        completedTasks.appendChild(itemDiv);
+    }
+    else {
+        var incompleteTasks = document.getElementById("incomplete-tasks");
+        incompleteTasks.appendChild(itemDiv);
+    }
 }
 function getById(id) {
     return document.getElementById(id);
@@ -56,4 +75,10 @@ function createErrorMessage(errMsg) {
 function clearAllErrors() {
     var errSummary = getById("validation");
     errSummary.innerText = "";
+}
+function clearAllTasks() {
+    var clearCompleteTasks = getById("completed-tasks");
+    clearCompleteTasks.innerText = "";
+    var clearIncompleteTasks = getById("incomplete-tasks");
+    clearIncompleteTasks.innerText = "";
 }

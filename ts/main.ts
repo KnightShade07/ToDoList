@@ -37,11 +37,13 @@ function isAllDataValid(): boolean{
         createErrorMessage("Title is required!");
     }
     
+    
     return isValid;
 }
 
 function addToDoListItem(){
     if(isAllDataValid()){
+        clearAllErrors();
         let item = getToDoItem();
         displayToDoItem(item);
     }
@@ -61,7 +63,7 @@ function getToDoItem(): ToDoItem{
     tdItems.dueDate = new Date(dueDateInput.value);
 
     //get isCompleted
-    let isCompleted = getInputById("is-completed");
+    let isCompleted = getInputById("is-complete");
     tdItems.isCompleted = isCompleted.checked;
 
     return tdItems;
@@ -70,7 +72,31 @@ function getToDoItem(): ToDoItem{
 }
 
 function displayToDoItem(item:ToDoItem): void{
+    let itemText = document.createElement("h3");
+    itemText.innerText = item.title;
 
+    let itemDate = document.createElement("p");
+    itemDate.innerText = item.dueDate.toString();
+
+    let itemDiv = document.createElement("div");
+
+    
+    if(item.isCompleted){
+        itemDiv.classList.add("completed");
+    }
+    itemDiv.appendChild(itemText);
+    itemDiv.appendChild(itemDate);
+    
+    if(item.isCompleted){
+        let completedTasks = document.getElementById("completed-tasks");
+        completedTasks.appendChild(itemDiv);
+    }
+    else{
+        let incompleteTasks = document.getElementById("incomplete-tasks");
+        incompleteTasks.appendChild(itemDiv);
+    }
+
+    
 }
 //helper functions
 function getById(id) {
@@ -92,4 +118,12 @@ function createErrorMessage(errMsg:string){
 function clearAllErrors() {
     let errSummary = getById("validation");
     errSummary.innerText = "";
+}
+
+function clearAllTasks() {
+    let clearCompleteTasks = getById("completed-tasks");
+    clearCompleteTasks.innerText ="";
+    let clearIncompleteTasks = getById("incomplete-tasks");
+    clearIncompleteTasks.innerText=""
+
 }
