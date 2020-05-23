@@ -5,3 +5,8 @@ setInterval(function () {
     var humanReadable = now.format('hh:mm:ssA');
     clock.textContent = humanReadable;
 }, 1000);
+var ToDoItem = (function () {
+    function ToDoItem() {
+    }
+    return ToDoItem;
+}());
