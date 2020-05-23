@@ -10,8 +10,13 @@ var ToDoItem = (function () {
     }
     return ToDoItem;
 }());
-function isValid() {
-    return true;
+function isAllDataValid() {
+    var isValid = true;
+    var title = getInputById("title").value;
+    if (title == "") {
+        isValid = false;
+    }
+    return isValid;
 }
 function getToDoItem() {
 }
@@ -22,4 +27,6 @@ function getById(id) {
 }
 function getInputById(id) {
     return document.getElementById(id);
+}
+function createErrorMessage() {
 }

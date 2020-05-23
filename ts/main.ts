@@ -23,9 +23,15 @@ class ToDoItem{
     isCompleted: boolean;
 }
 
-function isValid(): boolean{
+function isAllDataValid(): boolean{
+    let isValid = true;
     
-    return true;
+    let title = getInputById("title").value;
+    if(title ==""){
+        isValid = false;
+    }
+    
+    return isValid;
 }
 
 function getToDoItem(): ToDoItem{
@@ -43,4 +49,8 @@ function getById(id: string) {
 
 function getInputById(id: string):HTMLInputElement{
     return <HTMLInputElement>document.getElementById(id);
+}
+
+function createErrorMessage(){
+    
 }
