@@ -15,6 +15,7 @@ function isAllDataValid() {
     var title = getInputById("title").value;
     if (title == "") {
         isValid = false;
+        createErrorMessage("Title is required!");
     }
     return isValid;
 }
@@ -28,5 +29,13 @@ function getById(id) {
 function getInputById(id) {
     return document.getElementById(id);
 }
-function createErrorMessage() {
+function createErrorMessage(errMsg) {
+    var errSummary = getById("validation");
+    var errItem = document.createElement("li");
+    errItem.innerText = errMsg;
+    errSummary.appendChild(errItem);
+}
+function clearAllErrors() {
+    var errSummary = getById("validation");
+    errSummary.innerText = "";
 }

@@ -29,6 +29,7 @@ function isAllDataValid(): boolean{
     let title = getInputById("title").value;
     if(title ==""){
         isValid = false;
+        createErrorMessage("Title is required!");
     }
     
     return isValid;
@@ -51,6 +52,14 @@ function getInputById(id: string):HTMLInputElement{
     return <HTMLInputElement>document.getElementById(id);
 }
 
-function createErrorMessage(){
-    
+function createErrorMessage(errMsg:string){
+    let errSummary = getById("validation");
+    let errItem = document.createElement("li");
+    errItem.innerText = errMsg;
+    errSummary.appendChild(errItem);
+}
+
+function clearAllErrors() {
+    let errSummary = getById("validation");
+    errSummary.innerText = "";
 }
