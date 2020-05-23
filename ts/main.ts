@@ -23,6 +23,11 @@ class ToDoItem{
     isCompleted: boolean;
 }
 
+window.onload = function() {
+    let addTask = getById("addTask");
+    addTask.onclick = addToDoListItem();
+}
+
 function isAllDataValid(): boolean{
     let isValid = true;
     
@@ -37,12 +42,30 @@ function isAllDataValid(): boolean{
 
 function addToDoListItem(){
     if(isAllDataValid()){
-        let item:ToDoItem = getToDoItem();
+        let item = getToDoItem();
         displayToDoItem(item);
     }
 }
 
 function getToDoItem(): ToDoItem{
+    let tdItems = new ToDoItem();
+
+    //gets the title
+    let titleInput = getInputById("title");
+    tdItems.title = titleInput.value;
+    
+   
+
+    //get due date
+    let dueDateInput = getInputById("due-date");
+    tdItems.dueDate = new Date(dueDateInput.value);
+
+    //get isCompleted
+    let isCompleted = getInputById("is-completed");
+    tdItems.isCompleted = isCompleted.checked;
+
+    return tdItems;
+
 
 }
 
@@ -50,12 +73,12 @@ function displayToDoItem(item:ToDoItem): void{
 
 }
 //helper functions
-function getById(id: string) {
+function getById(id) {
     return document.getElementById(id);
 
 }
 
-function getInputById(id: string):HTMLInputElement{
+function getInputById(id):HTMLInputElement{
     return <HTMLInputElement>document.getElementById(id);
 }
 

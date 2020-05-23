@@ -10,6 +10,10 @@ var ToDoItem = (function () {
     }
     return ToDoItem;
 }());
+window.onload = function () {
+    var addTask = getById("addTask");
+    addTask.onclick = addToDoListItem();
+};
 function isAllDataValid() {
     var isValid = true;
     var title = getInputById("title").value;
@@ -26,6 +30,14 @@ function addToDoListItem() {
     }
 }
 function getToDoItem() {
+    var tdItems = new ToDoItem();
+    var titleInput = getInputById("title");
+    tdItems.title = titleInput.value;
+    var dueDateInput = getInputById("due-date");
+    tdItems.dueDate = new Date(dueDateInput.value);
+    var isCompleted = getInputById("is-completed");
+    tdItems.isCompleted = isCompleted.checked;
+    return tdItems;
 }
 function displayToDoItem(item) {
 }
