@@ -17,3 +17,9 @@ function getToDoItem() {
 }
 function displayToDoItem(item) {
 }
+function getById(id) {
+    return document.getElementById(id);
+}
+function getInputById(id) {
+    return document.getElementById(id);
+}

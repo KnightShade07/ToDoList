@@ -24,6 +24,7 @@ class ToDoItem{
 }
 
 function isValid(): boolean{
+    
     return true;
 }
 
@@ -34,4 +35,12 @@ function getToDoItem(): ToDoItem{
 function displayToDoItem(item:ToDoItem): void{
 
 }
+//helper functions
+function getById(id: string) {
+    return document.getElementById(id);
 
+}
+
+function getInputById(id: string):HTMLInputElement{
+    return <HTMLInputElement>document.getElementById(id);
+}
