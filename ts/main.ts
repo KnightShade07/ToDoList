@@ -11,6 +11,13 @@ const clock = document.getElementById('clock');
         }, 1000 )
 
 //TODO: Put Calender Library Code here!
+// @ts-ignore - lack of IntelliSense
+var Calendar = require('tui-calendar'); /* CommonJS */
+// @ts-ignore - lack of IntelliSense
+require("tui-calendar/dist/tui-calendar.css");
+// @ts-ignore - Lack of IntelliSense
+import Calendar from 'tui-calendar'; /* ES6 */
+import "tui-calendar/dist/tui-calendar.css";
 
 
 /******************************************************************************************************* */
@@ -127,3 +134,14 @@ function clearAllTasks() {
     clearIncompleteTasks.innerText=""
 
 }
+
+var calendar = new Calendar('#calendar', {
+    defaultView: 'month',
+    taskView: true,
+    template: {
+      monthDayname: function(dayname) {
+        return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+      }
+      
+    }
+  });
