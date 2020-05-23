@@ -12,7 +12,7 @@ var ToDoItem = (function () {
 }());
 window.onload = function () {
     var addTask = getById("addTask");
-    addTask.onclick = addToDoListItem();
+    addTask.onclick = addToDoListItem;
 };
 function isAllDataValid() {
     var isValid = true;

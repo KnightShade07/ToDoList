@@ -25,7 +25,7 @@ class ToDoItem{
 
 window.onload = function() {
     let addTask = getById("addTask");
-    addTask.onclick = addToDoListItem();
+    addTask.onclick = addToDoListItem;
 }
 
 function isAllDataValid(): boolean{
