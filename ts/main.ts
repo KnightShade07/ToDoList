@@ -35,6 +35,13 @@ function isAllDataValid(): boolean{
     return isValid;
 }
 
+function addToDoListItem(){
+    if(isAllDataValid()){
+        let item:ToDoItem = getToDoItem();
+        displayToDoItem(item);
+    }
+}
+
 function getToDoItem(): ToDoItem{
 
 }

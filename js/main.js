@@ -19,6 +19,12 @@ function isAllDataValid() {
     }
     return isValid;
 }
+function addToDoListItem() {
+    if (isAllDataValid()) {
+        var item = getToDoItem();
+        displayToDoItem(item);
+    }
+}
 function getToDoItem() {
 }
 function displayToDoItem(item) {
