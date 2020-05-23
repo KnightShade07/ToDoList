@@ -23,3 +23,15 @@ class ToDoItem{
     isCompleted: boolean;
 }
 
+function isValid(): boolean{
+    return true;
+}
+
+function getToDoItem(): ToDoItem{
+
+}
+
+function displayToDoItem(item:ToDoItem): void{
+
+}
+

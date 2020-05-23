@@ -10,3 +10,10 @@ var ToDoItem = (function () {
     }
     return ToDoItem;
 }());
+function isValid() {
+    return true;
+}
+function getToDoItem() {
+}
+function displayToDoItem(item) {
+}
