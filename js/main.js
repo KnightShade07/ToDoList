@@ -22,14 +22,15 @@ function isAllDataValid() {
         createErrorMessage("Title is required!");
     }
     var dueDate = getInputById("due-date").value;
-    if (dueDate = "") {
+    if (dueDate == "") {
         isValid = false;
-        createErrorMessage("A Due Date is required!");
+        createErrorMessage("A due date is required!");
     }
     return isValid;
 }
 function addToDoListItem() {
     if (isAllDataValid()) {
+        clearAllErrors();
         var item = getToDoItem();
         displayToDoItem(item);
     }

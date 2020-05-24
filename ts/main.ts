@@ -35,13 +35,15 @@ function isAllDataValid(): boolean{
     if(title ==""){
         isValid = false;
         createErrorMessage("Title is required!");
+        
+    }
+    let dueDate = getInputById("due-date").value;
+
+    if(dueDate == ""){
+        isValid = false;
+        createErrorMessage("A due date is required!");
     }
     
-    let dueDate = getInputById("due-date").value;
-    if(dueDate = ""){
-        isValid = false;
-        createErrorMessage("A Due Date is required!");
-    }
     
     
     return isValid;
