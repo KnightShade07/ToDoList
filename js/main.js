@@ -1,5 +1,3 @@
-"use strict";
-
 var picker = datepicker("#due-date");
 var clock = document.getElementById('clock');
 setInterval(function () {
@@ -7,18 +5,6 @@ setInterval(function () {
     var humanReadable = now.format('hh:mm:ssA');
     clock.textContent = humanReadable;
 }, 1000);
-var Calendar = require('tui-calendar');
-require("tui-calendar/dist/tui-calendar.css");
-require("tui-calendar/dist/tui-calendar.css");
-var calendar = new Calendar('#calendar', {
-    defaultView: 'month',
-    taskView: true,
-    template: {
-        monthDayname: function (dayname) {
-            return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
-        }
-    }
-});
 var ToDoItem = (function () {
     function ToDoItem() {
     }
