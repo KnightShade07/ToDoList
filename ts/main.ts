@@ -37,6 +37,12 @@ function isAllDataValid(): boolean{
         createErrorMessage("Title is required!");
     }
     
+    let dueDate = getInputById("due-date").value;
+    if(dueDate = ""){
+        isValid = false;
+        createErrorMessage("A Due Date is required!");
+    }
+    
     
     return isValid;
 }
