@@ -19,6 +19,17 @@ require("tui-calendar/dist/tui-calendar.css");
 import Calendar from 'tui-calendar'; /* ES6 */
 import "tui-calendar/dist/tui-calendar.css";
 
+var calendar = new Calendar('#calendar', {
+    defaultView: 'month',
+    taskView: true,
+    template: {
+      monthDayname: function(dayname) {
+        return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+      }
+      
+    }
+  });
+
 
 /******************************************************************************************************* */
                                               //PAGE TYPESCRIPT
@@ -131,17 +142,19 @@ function clearAllTasks() {
     let clearCompleteTasks = getById("completed-tasks");
     clearCompleteTasks.innerText ="";
     let clearIncompleteTasks = getById("incomplete-tasks");
-    clearIncompleteTasks.innerText=""
+    clearIncompleteTasks.innerText="";
 
 }
 
-var calendar = new Calendar('#calendar', {
-    defaultView: 'month',
-    taskView: true,
-    template: {
-      monthDayname: function(dayname) {
-        return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
-      }
-      
+function hideClockElement(){
+    var x = getInputById("clock");
+    if(x.style.display === "none") {
+        x.style.display = "block";
     }
-  });
+    else {
+        x.style.display = "none";
+    }
+
+}
+
+
