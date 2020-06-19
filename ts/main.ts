@@ -54,6 +54,8 @@ function addToDoListItem(){
         clearAllErrors();
         let item = getToDoItem();
         displayToDoItem(item);
+
+        
     }
 }
 
@@ -103,6 +105,8 @@ function displayToDoItem(item:ToDoItem): void{
         let incompleteTasks = document.getElementById("incomplete-tasks");
         incompleteTasks.appendChild(itemDiv);
     }
+    
+
 
     
 }
@@ -135,6 +139,14 @@ function clearAllTasks() {
     clearIncompleteTasks.innerText="";
 
 }
+//lets the user clear just the incomplete tasks.
+function clearIncompleteTasks() {
+    let clearIncompleteTasks = getById("incomplete-tasks");
+    clearIncompleteTasks.innerText="";
+
+}
+
+
 
 function hideClockElement(){
     var x = getInputById("clock");
@@ -146,5 +158,8 @@ function hideClockElement(){
     }
 
 }
+
+
+
 
 

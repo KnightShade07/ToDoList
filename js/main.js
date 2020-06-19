@@ -87,6 +87,10 @@ function clearAllTasks() {
     var clearIncompleteTasks = getById("incomplete-tasks");
     clearIncompleteTasks.innerText = "";
 }
+function clearIncompleteTasks() {
+    var clearIncompleteTasks = getById("incomplete-tasks");
+    clearIncompleteTasks.innerText = "";
+}
 function hideClockElement() {
     var x = getInputById("clock");
     if (x.style.display === "none") {
